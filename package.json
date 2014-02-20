@@ -1,0 +1,43 @@
+{
+  "name": "consoloid-framework",
+  "version": "0.1",
+  "description": "A framework that allows classical object oriented development, with unique features like class auto-loading",
+  "homepage": "https://github.com/agmen-hu/consoloid-framerwork",
+  "license": "MIT",
+  "author": {
+    "name": "dev.agmen.hu Kft.",
+    "email": "support@agmen.hu",
+    "url": "https://agmen.hu"
+  },
+  "contributors": [
+    {
+      "name": "Szilard Novaki",
+      "email": "novaki@agmen.hu"
+    },
+    {
+      "name": "Attila Hendrich",
+      "email": "hendricha@agmen.hu"
+    },
+    {
+      "name": "Gabor Kiss",
+      "email": "nevi@agmen.hu"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/agmen-hu/consoloid-framework/issues"
+  },
+  "dependencies": {
+    "glob": "*",
+    "mocha": "*",
+    "sinon": "*",
+    "jsdom": "*",
+    "should": "*",
+    "jquery": "*",
+    "socket.io-client": "*",
+    "async": "git://github.com/agmen-hu/async"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/agmen-hu/consoloid-framework"
+  }
+}

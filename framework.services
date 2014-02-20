@@ -1,0 +1,28 @@
+definitions:
+  logger:
+    cls: Consoloid.Log.BaseLogger
+    shared: true
+    options:
+      levels: "%log.client.levels%"
+      levelName: "%log.client.levelName%"
+      streamServices: "%log.client.streamServices%"
+  log_stream_console:
+    cls: Consoloid.Log.Stream.Console
+  log_stream_buffer:
+    cls: Consoloid.Log.Stream.ClientBuffer
+    options:
+      interval: "%log.client.bufferSendInterval%"
+      maxAttemptTime: 600000,
+      maxPacketLength: 512
+  css_loader:
+    cls: Consoloid.Resource.CssLoader
+  templating:
+    cls: Consoloid.Widget.JQoteTemplate
+  async_rpc_handler_client:
+    cls: Consoloid.Service.AsyncRPC.BrowserPeer
+    shared: true
+  instance_method_overrider:
+    cls: Consoloid.Service.Utility.InstanceMethodOverrider
+    shared: true
+  async_function_queue:
+    cls: Consoloid.Utility.AsyncFunctionQueue

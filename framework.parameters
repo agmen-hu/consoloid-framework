@@ -1,0 +1,17 @@
+log:
+  client:
+    # the level
+    levelName: info
+    # available levels and their order
+    levels:
+      debug: 0
+      info: 3
+      warning: 5
+      error: 7
+      disabled: 1000
+    # type of streams where the logger can log
+    streamServices:
+      - log_stream_console
+      - log_stream_buffer
+    # buffer stream send interval in milliseconds
+    bufferSendInterval: 20000
