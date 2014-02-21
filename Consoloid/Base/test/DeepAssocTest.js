@@ -137,28 +137,28 @@ describe('Consoloid.Base.DeepAssoc', function() {
 
     it('should return string when string is required', function() {
       assoc.require('str', 'string')
-        .should.be.a('string');
+        .should.be.type('string');
     });
 
     it('should return boolean when boolean is required', function() {
       assoc.require('bool0', 'bool')
-        .should.be.a('boolean');
+        .should.be.type('boolean');
       assoc.require('bool1', 'boolean')
-        .should.be.a('boolean');
+        .should.be.type('boolean');
     });
 
     it('should return object when object is required', function() {
       assoc.require('obj0', 'Object')
-        .should.be.a('object');
+        .should.be.type('object');
       assoc.require('obj1', 'Consoloid.Base.Object')
-        .should.be.a('object');
+        .should.be.type('object');
     });
 
     it('should require object when type is not given', function() {
       assoc.require('obj0')
-        .should.be.a('object');
+        .should.be.type('object');
       assoc.require('obj1')
-        .should.be.a('object');
+        .should.be.type('object');
     });
 
     it('should throw error when string is not present but required', function() {

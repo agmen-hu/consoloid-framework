@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('./Consoloid/Test/Runner').run();
+require('./Consoloid/Test/Runner').run('/Consoloid/');
