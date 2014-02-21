@@ -10,6 +10,10 @@ defineClass('Consoloid.Error.Handler', 'Consoloid.Base.Object',
 
   __decideReturnValueByBrowser: function ()
   {
+    if (!jQuery.browser) {
+      return true;
+    }
+
     if (jQuery.browser.webkit) {
       return true;
     } else if (jQuery.browser.msie) {
