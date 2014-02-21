@@ -1,6 +1,6 @@
 require('../BasePeer');
 require('../Response');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 describeUnitTest('Consoloid.Service.AsyncRPC.BasePeer', function() {
   var
     clock,

@@ -1,6 +1,6 @@
 require('../BasePeer');
 require('../BrowserPeer');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 describeUnitTest('Consoloid.Service.AsyncRPC.BrowserPeer', function() {
   var
     handler;

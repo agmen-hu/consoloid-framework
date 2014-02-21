@@ -1,4 +1,4 @@
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../Test/UnitTest');
 describeUnitTest('Consoloid.Base.Object', function() {
   var
     object;

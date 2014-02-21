@@ -1,6 +1,6 @@
 require("../BaseRemoteService.js");
 require("../RemoteService.js");
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../Test/UnitTest');
 describeUnitTest('RemoteService', function(){
   beforeEach(function() {
     env.container.addDefinition('remote_service_1', {

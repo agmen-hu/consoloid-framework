@@ -1,4 +1,4 @@
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../Test/UnitTest');
 require('../AsyncFunctionQueue');
 
 describeUnitTest('Consoloid.Utility.AsyncFunctionQueue', function() {

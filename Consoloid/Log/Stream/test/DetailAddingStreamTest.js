@@ -1,7 +1,7 @@
 require('../../DetailProvider/BaseProvider');
 require('../Stream');
 require('../DetailAddingStream');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 describeUnitTest('Consoloid.Log.Stream.DetailAddingStream', function() {
   var
     stream,

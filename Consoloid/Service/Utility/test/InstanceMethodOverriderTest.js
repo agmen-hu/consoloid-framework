@@ -1,5 +1,5 @@
 require('../InstanceMethodOverrider');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 
 describeUnitTest('Consoloid.Service.Utility.InstanceMethodOverrider', function() {
   var

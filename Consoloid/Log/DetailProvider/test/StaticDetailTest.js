@@ -1,6 +1,6 @@
 require('../BaseProvider');
 require('../StaticDetail');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 describeUnitTest('Consoloid.Log.DetailProvider.StaticDetail', function() {
   var
     provider;

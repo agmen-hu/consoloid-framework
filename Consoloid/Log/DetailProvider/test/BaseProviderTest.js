@@ -1,5 +1,5 @@
 require('../BaseProvider');
-require('consoloid-framework/Consoloid/Test/UnitTest');
+require('../../../Test/UnitTest');
 describeUnitTest('Consoloid.Log.DetailProvider.BaseProvider', function() {
   describe('#__constructor()', function() {
     it('should bind provideDetails() method to the instance', function() {
