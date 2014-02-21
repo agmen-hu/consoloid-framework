@@ -5,7 +5,7 @@
   global.jQuery = global.$ = require('jquery');;
 
   global.navigator = { userAgent: ''};
-  require('../Base/jquery/jquery.inherit-1.3.2.M.js');
+  require('../Base/jquery/jquery.inherit.min.js');
   require('../Base/Object');
   require("../Service/ServiceContainer");
   require("./FakeResourceLoader");
