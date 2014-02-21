@@ -1,0 +1,3 @@
+# Consoloid Framework module
+
+FIXME
