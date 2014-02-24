@@ -26,6 +26,7 @@ defineClass('Consoloid.Test.Environment', 'Consoloid.Base.Object',
   {
     __constructor: function()
     {
+      $.fx.off = true;
       this.initializeContainer();
       this.consoleLog = undefined;
       this.consoleDir = undefined;
@@ -93,7 +94,9 @@ defineClass('Consoloid.Test.Environment', 'Consoloid.Base.Object',
      * loses all references to it.
      */
     shutdown: function() {
-      $(document).unbind('Consoloid.Base.Object.loadClass');
+      $('html,document').unbind();
+      document.body.innerHTML = '';
+      $.fx.off = false;
     },
 
     /**
