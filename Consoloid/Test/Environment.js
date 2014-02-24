@@ -94,7 +94,8 @@ defineClass('Consoloid.Test.Environment', 'Consoloid.Base.Object',
      * loses all references to it.
      */
     shutdown: function() {
-      $('html,document').unbind();
+      $('html').unbind();
+      $(document).unbind();
       document.body.innerHTML = '';
       $.fx.off = false;
     },
