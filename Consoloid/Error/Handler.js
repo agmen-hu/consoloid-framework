@@ -10,17 +10,11 @@ defineClass('Consoloid.Error.Handler', 'Consoloid.Base.Object',
 
   __decideReturnValueByBrowser: function ()
   {
-    if (!jQuery.browser) {
-      return true;
-    }
+    var userAgent = navigator.userAgent;
 
-    if (jQuery.browser.webkit) {
+    if (userAgent.match(/AppleWebKit\//) || userAgent.match(/Gecko\//)) {
       return true;
-    } else if (jQuery.browser.msie) {
-      return false;
-    } else if (jQuery.browser.mozilla) {
-      return true;
-    } else if (jQuery.browser.opera) {
+    } else if (userAgent.match(/Opera/) || userAgent.match(/\sMSIE\s/)) {
       return false;
     }
 
