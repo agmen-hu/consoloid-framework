@@ -12,9 +12,23 @@ defineClass('Consoloid.Resource.ClassLoader', 'Consoloid.Base.Object',
 
     __loadClass: function(event, className)
     {
-      eval(
-        this.get('resource_loader').getJs(className.replace(/\./gi,'/'))
-      );
+      var source = this.get('resource_loader').getJs(className.replace(/\./gi,'/'));
+      if (!this.__classIsAlreadyDefined(className)) {
+        eval(source);
+      }
+    },
+
+    __classIsAlreadyDefined: function(className)
+    {
+      var current = global;
+      return className.split('.').every(function(value) {
+        if (!(value in current)) {
+          return false;
+        }
+
+        current = current[value];
+        return true;
+      });
     }
   }
 );

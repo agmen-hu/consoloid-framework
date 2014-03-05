@@ -37,5 +37,21 @@ describe('ClassLoader', function() {
 
       mock.verify();
     });
+
+    it ('should not overwrite existing classes', function() {
+      defineClass('Consoloid.Resource.ClassRedefinitionTest', { method1: function() { return 'method1'; } });
+
+      var object = env.create(Consoloid.Resource.ClassLoader, {});
+      var mock = sinon.mock(env.container.get('resource_loader'));
+      mock.expects("getJs")
+        .once()
+        .withArgs('Consoloid/Resource/ClassRedefinitionTest')
+        .returns("defineClass('Consoloid.Resource.ClassRedefinitionTest', { test: function() { return 'foo'; } });");
+
+      object.__loadClass(null, 'Consoloid.Resource.ClassRedefinitionTest');
+      Consoloid.Resource.ClassRedefinitionTest.prototype.should.not.have.property('test');
+
+      mock.verify();
+    })
   });
 });
