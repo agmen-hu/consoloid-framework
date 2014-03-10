@@ -61,7 +61,7 @@ defineClass('Consoloid.Service.RemoteService', 'Consoloid.Service.BaseRemoteServ
       return this.__startCall(method, callData);
     },
 
-    callAsync: function(method, args, callbacks)
+    callAsync: function(method, args, callbacks, maxResponseTime)
     {
       this.__options.container.get('async_rpc_handler_client').callAsyncOnService(
           this.__options.instanceID,
@@ -69,7 +69,8 @@ defineClass('Consoloid.Service.RemoteService', 'Consoloid.Service.BaseRemoteServ
           args,
           callbacks.success || undefined,
           callbacks.error || undefined,
-          callbacks.timeout || undefined
+          callbacks.timeout || undefined,
+          maxResponseTime
       );
     }
   }

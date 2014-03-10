@@ -114,7 +114,7 @@ describeUnitTest('RemoteService', function(){
     });
   });
 
-  describe('callAsync(method, args, callbacks)', function() {
+  describe('callAsync(method, args, callbacks, maxResponseTime)', function() {
     beforeEach(function() {
       sinon.stub($, 'ajax', function(options){
         options.success({ result: 5 });
@@ -127,12 +127,13 @@ describeUnitTest('RemoteService', function(){
       });
       var service = env.container.get('remote_service_1');
 
-      service.callAsync('method', [ 'arg1', 'arg2' ], {});
+      service.callAsync('method', [ 'arg1', 'arg2' ], {}, 5);
 
       env.container.get('async_rpc_handler_client').callAsyncOnService.calledOnce.should.be.true;
       env.container.get('async_rpc_handler_client').callAsyncOnService.args[0][0].should.equal(5);
       env.container.get('async_rpc_handler_client').callAsyncOnService.args[0][1].should.equal('method');
       env.container.get('async_rpc_handler_client').callAsyncOnService.args[0][2].should.eql(['arg1', 'arg2']);
+      env.container.get('async_rpc_handler_client').callAsyncOnService.args[0][6].should.eql(5);
     });
 
     afterEach(function() {

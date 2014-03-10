@@ -31,19 +31,20 @@ describe('RemoteSharedService', function(){
     });
   });
 
-  describe('callAsync(method, args, callbacks)', function() {
+  describe('callAsync(method, args, callbacks, maxResponseTime)', function() {
     it('should call given method on server side, using AsyncRPC on client side', function() {
       env.addServiceMock('async_rpc_handler_client', {
         callAsyncOnSharedService: sinon.spy()
       });
       var service = env.container.get('remote_service_1');
 
-      service.callAsync('method', [ 'arg1', 'arg2' ], {});
+      service.callAsync('method', [ 'arg1', 'arg2' ], {}, 5);
 
       env.container.get('async_rpc_handler_client').callAsyncOnSharedService.calledOnce.should.be.true;
       env.container.get('async_rpc_handler_client').callAsyncOnSharedService.args[0][0].should.equal('remote-service-1');
       env.container.get('async_rpc_handler_client').callAsyncOnSharedService.args[0][1].should.equal('method');
       env.container.get('async_rpc_handler_client').callAsyncOnSharedService.args[0][2].should.eql(['arg1', 'arg2']);
+      env.container.get('async_rpc_handler_client').callAsyncOnSharedService.args[0][6].should.eql(5);
     });
   });
 });

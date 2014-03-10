@@ -9,7 +9,7 @@ defineClass('Consoloid.Service.RemoteSharedService', 'Consoloid.Service.BaseRemo
       }
     },
 
-    callAsync: function(method, args, callbacks)
+    callAsync: function(method, args, callbacks, maxResponseTime)
     {
       this.__options.container.get('async_rpc_handler_client').callAsyncOnSharedService(
           this.__options.id,
@@ -17,7 +17,8 @@ defineClass('Consoloid.Service.RemoteSharedService', 'Consoloid.Service.BaseRemo
           args,
           callbacks.success || undefined,
           callbacks.error || undefined,
-          callbacks.timeout || undefined
+          callbacks.timeout || undefined,
+          maxResponseTime
       );
     }
   }
