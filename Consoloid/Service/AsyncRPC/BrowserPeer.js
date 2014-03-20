@@ -26,7 +26,7 @@ defineClass('Consoloid.Service.AsyncRPC.BrowserPeer', 'Consoloid.Service.AsyncRP
 
     __getSessionId: function()
     {
-      return decodeURIComponent(document.cookie).match('connect.sid=s:([^\.]+)')[1];
+      return decodeURIComponent(document.cookie).match(this.get('server').cookie + '=s:([^\.]+)')[1];
     },
 
     _handleActualSharedServiceCall: function(req, response)
