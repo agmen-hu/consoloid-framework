@@ -59,7 +59,7 @@ defineClass('Consoloid.Service.ServiceContainer',
 
     has: function(name)
     {
-      return this.services[name] || this.definitions[name];
+      return (this.services[name] || this.definitions[name]) ? true : false;
     },
 
     get: function(name)
