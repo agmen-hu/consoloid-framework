@@ -17,7 +17,8 @@ describeUnitTest('Consoloid.Service.AsyncRPC.BrowserPeer', function() {
     env.addServiceMock('server', { url: 'host' });
 
     defineClass('Consoloid.Service.AsyncRPC.TestedBrowserPeer', 'Consoloid.Service.AsyncRPC.BrowserPeer', {
-      _setupListeners: sinon.spy()
+      _setupListeners: sinon.spy(),
+      __getSessionId: sinon.stub().returns('testSessionId')
     });
     handler = env.create('Consoloid.Service.AsyncRPC.TestedBrowserPeer', {});
   });
@@ -26,6 +27,12 @@ describeUnitTest('Consoloid.Service.AsyncRPC.BrowserPeer', function() {
     it('should setup socket connection', function() {
       io.connect.calledOnce.should.be.true;
       io.connect.calledWithExactly('host').should.be.true;
+    });
+
+    it('should register the session on the server side', function() {
+      handler.getSocket().emit.calledOnce.should.be.true;
+      handler.getSocket().emit.args[0][0].should.be.equal('connect.register');
+      handler.getSocket().emit.args[0][1].should.be.eql({ sessionID: 'testSessionId' });
     });
 
     it('should bind events by calling _setupListeners()', function() {

@@ -20,8 +20,17 @@ defineClass('Consoloid.Service.AsyncRPC.BrowserPeer', 'Consoloid.Service.AsyncRP
       }
 
       this._setupListeners();
+      this.__registerSession();
 
       this.get('logger').log('debug', 'Connected to socket.io server.');
+    },
+
+    __registerSession: function()
+    {
+      this.get('logger').log('debug', 'Registering socket.io connection in session.');
+      this.socket.emit('connect.register', {
+        sessionID: this.__getSessionId()
+      });
     },
 
     __getSessionId: function()
