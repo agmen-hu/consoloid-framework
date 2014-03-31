@@ -35,6 +35,21 @@ describe('ServiceContainer', function(){
     });
   });
 
+  describe('#removeDefinition()', function(){
+    it('should remove definition', function() {
+      container.removeDefinition('test1');
+      container.definitions.should.not.have.property('test1');
+    });
+
+    it('should also remove shared service instances', function() {
+      container.get('test2');
+      container.removeDefinition('test2');
+      (function() {
+        container.get('test2');
+      }).should.throwError();
+    });
+  });
+
   describe('#get()', function(){
     it('should create every instance as given in definitions', function() {
       var test1 = container.get('test1');

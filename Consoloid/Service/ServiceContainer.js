@@ -32,6 +32,18 @@ defineClass('Consoloid.Service.ServiceContainer',
       return this;
     },
 
+    removeDefinition: function(name)
+    {
+      if (!(name in this.definitions)) {
+        throw new Error('No such definition: ' + name);
+      }
+
+      delete this.definitions[name];
+      if (name in this.services) {
+        delete this.services[name];
+      }
+    },
+
     getDefinition: function(name)
     {
       if (name in this.definitions) {
