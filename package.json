@@ -1,6 +1,6 @@
 {
   "name": "consoloid-framework",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A framework that allows classical object oriented development, with unique features like class auto-loading",
   "homepage": "https://github.com/agmen-hu/consoloid-framework",
   "license": "MIT",
@@ -30,12 +30,12 @@
     "test": "./runtests"
   },
   "dependencies": {
-    "glob": "*",
-    "mocha": "*",
-    "sinon": "*",
-    "jsdom": "*",
-    "should": "*",
-    "jquery": "*",
+    "glob": "3.2.9",
+    "mocha": "1.18.2",
+    "sinon": "1.9.0",
+    "jsdom": "0.10.4",
+    "should": "3.2.0",
+    "jquery": "2.1.0",
     "socket.io-client": "0.9.16",
     "async": "git://github.com/agmen-hu/async"
   },
